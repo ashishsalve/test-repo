@@ -11,6 +11,13 @@ describe('test-repo API', () => {
     expect(res.body.status).toBe('ok');
   });
 
+  test('GET /api/health returns ok with uptime', async () => {
+    const res = await request(app).get('/api/health');
+    expect(res.status).toBe(200);
+    expect(res.body.status).toBe('ok');
+    expect(typeof res.body.uptime).toBe('number');
+  });
+
   test('GET /api/tasks lists seeded tasks', async () => {
     const res = await request(app).get('/api/tasks');
     expect(res.status).toBe(200);
