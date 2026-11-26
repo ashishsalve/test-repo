@@ -15,6 +15,7 @@ npm test         # runs the Jest + Supertest suite
 | Method | Path              | Description                              |
 |--------|-------------------|------------------------------------------|
 | GET    | /health           | Health check                             |
+| GET    | /api/health       | Health check (same response as `/health`)|
 | GET    | /api/tasks        | List tasks (optional `?status=` filter)  |
 | POST   | /api/tasks        | Create a task (`title` required)         |
 | GET    | /api/tasks/:id    | Get a task by id                         |
