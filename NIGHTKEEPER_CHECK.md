@@ -1,8 +1,8 @@
 # NIGHTKEEPER_CHECK
 
-Small Express.js (Node >= 18) REST API for managing tasks, held in an in-memory store that resets on restart.
-Code: `src/app.js` (app, `/health`), `src/routes` + `src/controllers` (`/api/tasks` CRUD), `src/store`, `src/middleware`.
-Task statuses are `todo`, `in_progress` and `done`. Tests: Jest + Supertest in `tests/`, run by GitHub Actions CI.
+A small Express.js (Node >= 18) REST API for managing tasks, backed by an in-memory store (`src/store/taskStore.js`).
+Endpoints: `GET /health` plus CRUD on `/api/tasks` (list with `?status=`, create, get, PATCH update, delete).
+Code layout: `src/app.js` (app setup), `src/server.js` (entry point), `src/routes`, `src/controllers`, `src/middleware`.
 Install: `npm install`
-Run: `npm start` (listens on http://localhost:3000, override with `PORT`) or `npm run dev` (nodemon)
-Test: `npm test`
+Run: `npm start` (listens on http://localhost:3000, override with `PORT`); `npm run dev` for nodemon auto-reload.
+Test: `npm test` (Jest + Supertest suite in `tests/`); CI runs the same on Node 20 via GitHub Actions.
